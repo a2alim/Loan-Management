@@ -2,12 +2,24 @@
 	pageEncoding="ISO-8859-1"%>
 
 <jsp:include page="../layout/header.jsp" />
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 
-<section class="content-info py-5">
+<section class="content-info py-5" ng-app="app" ng-controller="appController">
 	<div class="container py-md-5" style="margin-top: 125px;">
+		<div class="form-group text-center">
+			<ul class="list-inline">
+				<li class="list-inline-item"><i
+					class="text-muted fa fa-cc-visa fa-2x"></i></li>
+				<li class="list-inline-item"><i
+					class="fa fa-cc-mastercard fa-2x"></i></li>
+				<li class="list-inline-item"><i class="fa fa-cc-amex fa-2x"></i></li>
+				<li class="list-inline-item"><i class="fa fa-cc-discover fa-2x"></i></li>
+			</ul>
+		</div>
 		<div class="text-center px-lg-5">
 			<h3 style="color: green;">${msg}</h3>
-			<h3 class="title-w3ls mb-5" style="color: green;">Installment Payment</h3>
+			<h3 class="title-w3ls mb-5" style="color: green;">Installment
+				Payment</h3>
 		</div>
 		<div class="contact-w3ls-form mt-5">
 			<form action="/loaninfo-search">
@@ -21,66 +33,91 @@
 					</div>
 					<div class="col-md-6">
 						<div class="form-group">
-							<button type="submit" class="btn btn-success" style="width: 200px; height: 55px;">Search</button>
+							<button type="submit" class="btn btn-success"
+								style="width: 200px; height: 55px;">Search</button>
 						</div>
 					</div>
 
 				</div>
 			</form>
-			<form action="/save-installment" class="w3-pvt-contact-fm"
-				method="post">
+			<form class="w3-pvt-contact-fm" ng-submit="onSubmit()">
 				<div class="row">
 					<div class="col-lg-6">
 						<div class="form-group">
-							<label>Nmae</label> <input class="form-control" type="text"
-								name="name" readonly value="${loaninfo.firstName} ${loaninfo.lastName} "
-								required="">
+							<label>Name</label> <input class="form-control" type="text"
+								name="name" readonly
+								value="${loaninfo.firstName} ${loaninfo.lastName} " required="">
 						</div>
 						<div class="form-group">
 							<label>Username</label> <input class="form-control" type="text"
-								name="username"  readonly required="" value="${loaninfo.username}">
+								name="username" readonly required=""
+								value="${loaninfo.username}">
 						</div>
 
 						<div class="form-group">
 							<label>Email</label> <input class="form-control" type="text"
-								name="email"  readonly value="${loaninfo.email}" required="">
+								name="email" readonly value="${loaninfo.email}" required="">
 						</div>
 						<div class="form-group">
 							<label>Address</label> <input class="form-control" type="text"
 								name="address" readonly value="${loaninfo.address}" required="">
 						</div>
 						<div class="form-group">
-							<label>Category</label> <input class="form-control" type="text"
-								name="category" readonly value="${loaninfo.category}" required="">
+							<label>Phone</label> <input class="form-control" type="text"
+								name="phone" value="${loaninfo.phone}" required="">
 						</div>
+						<div class="form-group">
+							<label>City</label> <input class="form-control" type="text"
+								name="city" required="">
+						</div>
+						
+						<div class="form-group">
+							<label>Cuntry</label> <select class="form-control"
+								name="country">
+								<option value="bangladesh" selected="">Bangladesh</option>
+								<option value="bangladesh" selected="">Bangladesh</option>
+							</select>
+						</div>
+
 					</div>
 					<div class="col-lg-6">
-
+						<div class="form-group">
+							<label>Category</label> <input class="form-control" type="text"
+								name="category" readonly value="${loaninfo.category}"
+								required="">
+						</div>
 						<div class="form-group">
 							<label>Loan ID</label> <input class="form-control" type="number"
 								id="loanId" readonly value="${loaninfo.loanId}" name="loanId" />
+								<input class="form-control" type="hidden"
+								id="loanAmount" readonly value="${loaninfo.loanAmount}" name="loanAmount" />
 						</div>
 
 						<div class="form-group">
-							<label>Loan Amount</label> <input type="number"
-								class="form-control"  name="loanAmount" 
-								readonly value="${loaninfo.loanAmount}" required="" />
+							<label>Currency</label> <select class="form-control"
+								name="currency">
+								<option value="local">Local (BDT)</option>
+								<option value="False">International (USD)</option>
+							</select>
 						</div>
 
-						<div class="form-group">
-							<label>Total Installment</label> <input class="form-control"
-								type="number"   name="paybleInstallment"
-								readonly value="${loaninfo.totalInstallment}" required="">
-						</div>
 						<div class="form-group">
 							<label>Installment Amount</label> <input class="form-control"
-								type="number"  name="installmentAmount"
-								readonly value="${loaninfo.installmentAmount}" required="">
+								type="number" name="paybleInstallment" readonly
+								value="${loaninfo.installmentAmount}" required="">
 						</div>
-
+						<div class="form-group">
+							<label>Total Amount</label> <input class="form-control"
+								type="number" value="${loaninfo.installmentAmount}"
+								name="installmentAmount" required="">
+						</div>
+						<div class="form-group">
+							<label>Transection Id </label> <input class="form-control"
+								type="text" name="transectionId" required="">
+						</div>
 						<div class="form-group mx-auto mt-3">
 							<button type="submit" class="btn btn-success btn-block"
-								style="margin-top: 43px;    height: 59px;">Submit Installment</button>
+								style="margin-top: 43px; height: 59px;"> Check Out</button>
 						</div>
 					</div>
 
@@ -88,9 +125,46 @@
 
 			</form>
 		</div>
+
+
+		<div class="row justify-content-center" style="margin-top: 20px;">
+			<div class="col-md-4">
+				<form action="/card-payement" method="get" class="form-group">
+					<h3 style="color: blue;">For Payment Through Card</h3>
+					
+					<label for="Card_Number">Card Number</label>
+					<input type="number" name="cardNumber" class="form-control" id="Card_Number" />
+					
+					 <label for="Card_Name">Card Holder's Name</label>
+					 <input type="text" name="holderName" class="form-control" id="Card_Name" />
+					 
+					 <label for="expiryDate">Expiry Date</label>
+					 <input type="date" name="expiryDate" class="form-control" id="expiryDate" />
+					 <br/>
+					<input type="submit" class="btn btn-info text-center" value="Pay Now" />
+				</form>
+			</div>
+		</div>
+
+
 	</div>
 </section>
 
 
 <jsp:include page="../layout/footer.jsp" />
+<script>
+	angular.module('app', [])
+	.controller('appController', function($scope, $http){
+		 $scope.onSubmit = function(){
+			 alert();
+			 $http.post("/save-installment", {suggest: "fdskfkds"})
+			 .then(function(res){
+				 console.log(res);
+			 }).catch(function(err){
+				 console.log(err);
+			 });
+		}
+	});
+	
+</script>
 

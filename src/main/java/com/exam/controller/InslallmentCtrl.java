@@ -1,8 +1,5 @@
 package com.exam.controller;
 
-import java.time.format.DateTimeFormatter;
-import java.time.temporal.TemporalAccessor;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -10,19 +7,21 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.exam.commerz.SSLCommerz;
+import com.exam.commerz.Utility.ParameterBuilder;
 import com.exam.model.ApplyLoan;
 import com.exam.model.Installment;
 import com.exam.service.ApplyLoanServiceImpl;
 import com.exam.service.InstallmentServiceImpl;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
-@Controller
+@RestController
 public class InslallmentCtrl {
 
 	@Autowired
@@ -44,53 +43,79 @@ public class InslallmentCtrl {
 	
 	
 	@PostMapping("/save-installment")
-	public ModelAndView createLoan(HttpServletRequest request) {
-
+	public String createLoan(HttpServletRequest request) {
+		
 		Map<String, Object> model = new HashMap<>();
-
-		String name = request.getParameter("name");
-		String username = request.getParameter("username");
-		String email = request.getParameter("email");
-		String address = request.getParameter("address");
-		String loanId = request.getParameter("loanId");
-		String loanAmount = request.getParameter("loanAmount");
-		String paybleInstallment = request.getParameter("paybleInstallment");
-		String installmentAmount = request.getParameter("installmentAmount");
-		String category = request.getParameter("category");
-
-		List<Installment> installmentList = (List<Installment>) installmentServiceImpl.getByLoanId(Long.parseLong(loanId));
-
-		Long totalPaid=0L;
-		for (Installment installment : installmentList) {
-			totalPaid += installment.getInstallmentAmount();
-		}
-		Long totalPayable= Long.parseLong(loanAmount)-totalPaid;
-
-		Installment installment = new Installment();
-
-		installment.setName(name);
-		installment.setUsername(username);
-		installment.setEmail(email);
-		installment.setAddress(address);
-		installment.setLoanAmount(Long.parseLong(loanAmount));
-		installment.setLoanId(Long.parseLong(loanId));
-		installment.setInstallmentAmount(Long.parseLong(installmentAmount));
-		installment.setCategory(category);
-		installment.setInstallmentDate(new Date());
-		installment.setTotalPaid(totalPaid);
-		installment.setTotalPayable(totalPayable);
-		installment.setInstallmentDate(new Date());
+		Map<String, String> postData = ParameterBuilder.constructRequestParameters();
 		
 		
-		installment = installmentServiceImpl.save(installment);
-		if (installment != null) {
-			model.put("success", "success");
-			model.put("msg", "Succesfully Paid Istallment.");
-			model.put("installment", installment);
-			return new ModelAndView("pages/user-installment", model);
+		try {
+			SSLCommerz sslCommerz = new SSLCommerz("olons5dc2484963f78", "olons5dc2484963f78@ssl", true);
+			String result = sslCommerz.initiateTransaction(postData, false);
+			Gson gson = new GsonBuilder().create();
+			
+			return gson.toJson(result);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
 		}
+		
+		
+		
+		
+//		String name = request.getParameter("name");
+//		String username = request.getParameter("username");
+//		String email = request.getParameter("email");
+//		String address = request.getParameter("address");
+//		String loanId = request.getParameter("loanId");
+//		String loanAmount = request.getParameter("loanAmount");
+//		String installmentAmount = request.getParameter("installmentAmount");
+//		String category = request.getParameter("category");
+//		
+//		String paybleInstallment = request.getParameter("paybleInstallment");
+//		String phone = request.getParameter("phone");
+//		String city = request.getParameter("city");
+//		String country = request.getParameter("country");
+//		String currency = request.getParameter("currency");
+//		String transectionId = request.getParameter("transectionId");
+////		
+////		
+////		System.out.println(loanAmount);
+////		System.out.println(paybleInstallment+phone+city+country+currency+transectionId);
+//		
+//		List<Installment> installmentList = (List<Installment>) installmentServiceImpl.getByLoanId(Long.parseLong(loanId));
+//		Long totalPaid=0L;
+//		for (Installment installment : installmentList) {
+//			totalPaid += installment.getInstallmentAmount();
+//		}
+//		Long totalPayable= Long.parseLong(loanAmount)-totalPaid;
+//
+//		Installment installment = new Installment();
+//
+//		installment.setName(name);
+//		installment.setUsername(username);
+//		installment.setEmail(email);
+//		installment.setAddress(address);
+//		installment.setLoanAmount(Long.parseLong(loanAmount));
+//		installment.setLoanId(Long.parseLong(loanId));
+//		installment.setInstallmentAmount(Long.parseLong(installmentAmount));
+//		installment.setCategory(category);
+//		installment.setInstallmentDate(new Date());
+//		installment.setTotalPaid(totalPaid);
+//		installment.setTotalPayable(totalPayable);
+//		
+//		installment = installmentServiceImpl.save(installment);
+//		if (installment != null) {
+//			model.put("success", "success");
+//			model.put("msg", "Succesfully Paid Istallment.");
+//			model.put("installment", installment);
+//			return new ModelAndView("pages/user-installment", model);
+//		}else {
+//			model.put("msg", "Failed Paid Istallment.");
+//			return new ModelAndView("pages/user-installment", model);
+//		}
 
-		return new ModelAndView("pages/user-installment", model);
+		
 	}
 
 	
@@ -144,5 +169,28 @@ public class InslallmentCtrl {
 		model.put("installmentList", installmentList);
 		return new ModelAndView("pages/installment-status", model);
 	}
+	
+	@GetMapping("/card-payement")
+	public ModelAndView cardPayment(HttpServletRequest request) {
+		Map<String, Object> model = new HashMap<>();
+//
+//		String id = request.getParameter("earchloanId");
+//		Long loanId = Long.parseLong(id);
+//
+//		List<Installment> installmentList = installmentServiceImpl.getByLoanId(loanId);
+		
+//		model.put("installmentList", installmentList);
+		return new ModelAndView("pages/user-installment", model);
+	}
 
+	
+	
+	@PostMapping("/ssl-success-page")
+	public ModelAndView sslPaymentSuccess() {
+		Map<String, Object> model = new HashMap<>();
+
+		System.out.println("SSL Successfull.");
+		model.put("msg", "SSL Payement successful");
+		return new ModelAndView("pages/user-installment", model);
+	}
 }
