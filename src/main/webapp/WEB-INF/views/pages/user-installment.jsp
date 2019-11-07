@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <jsp:include page="../layout/header.jsp" />
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
@@ -22,7 +23,7 @@
 				Payment</h3>
 		</div>
 		<div class="contact-w3ls-form mt-5">
-			<form action="/loaninfo-search">
+			<form action="<c:url value="/loaninfo-search"/>" >
 				<div class="row" style="margin-left: 96px;">
 
 					<div class="col-lg-6">
@@ -40,7 +41,7 @@
 
 				</div>
 			</form>
-			<form class="w3-pvt-contact-fm" ng-submit="onSubmit()">
+			<form  class="w3-pvt-contact-fm" ng-submit="onSubmit()">
 				<div class="row">
 					<div class="col-lg-6">
 						<div class="form-group">
@@ -129,7 +130,7 @@
 
 		<div class="row justify-content-center" style="margin-top: 20px;">
 			<div class="col-md-4">
-				<form action="/card-payement" method="get" class="form-group">
+				<form action="<c:url value="/card-payement"/>"   method="get" class="form-group">
 					<h3 style="color: blue;">For Payment Through Card</h3>
 					
 					<label for="Card_Number">Card Number</label>

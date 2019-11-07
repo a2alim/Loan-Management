@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+	
 <jsp:include page="../layout/header.jsp" />
 <section class="content-info py-5" >
         <div class="container py-md-5" style="margin-top: 125px;">
@@ -11,7 +13,7 @@
                 </div>
             </div>
             <div class="contact-w3ls-form mt-5">
-                <form action="/contactRequest" class="w3-pvt-contact-fm" method="post">
+                <form action="<c:url value="/contactRequest"/>" class="w3-pvt-contact-fm" method="post">
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="form-group">

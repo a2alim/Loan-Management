@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <div class="welcome py-5">
         <div class="container py-xl-5 py-lg-3" id="services">
@@ -95,10 +95,10 @@
                     </div>
                 </div>
                 <div class="col-lg-3 progress-content-img mt-4">
-                    <img src="uassets/images/skill1.jpg" alt="" class="img-fluid image1">
+                    <img src="<c:url value="uassets/images/skill1.jpg"/>" alt="" class="img-fluid image1">
                 </div>
                 <div class="col-lg-3 progress-content-img mt-4">
-                    <img src="uassets/images/skill2.jpg" alt="" class="img-fluid image1">
+                    <img src="<c:url value="uassets/images/skill2.jpg"/>" alt="" class="img-fluid image1">
                 </div>
 
             </div>
@@ -118,32 +118,32 @@
                     <div class="row">
                         <div class="col-sm-4 service-1-w3pvt serve-gd3">
                             <div class="serve-grid test-gd mt-4">
-                                <img src="uassets/images/t1.jpg" alt="" class="img-fluid image1">
+                                <img src="<c:url value="uassets/images/t1.jpg"/>"  alt="" class="img-fluid image1">
                                 <p class="mt-2">MD. Munna </p>
                             </div>
                             <div class="serve-grid test-gd mt-4">
-                                <img src="uassets/images/t2.jpg" alt="" class="img-fluid image1">
+                                <img src="<c:url value="uassets/images/t2.jpg"/>"  alt="" class="img-fluid image1">
                                 <p class="mt-2">Asraful Islam</p>
                             </div>
                             <div class="serve-grid test-gd mt-4">
-                                <img src="uassets/images/t3.jpg" alt="" class="img-fluid image1">
+                                <img  src="<c:url value="uassets/images/t3.jpg"/>" alt="" class="img-fluid image1">
                                 <p class="mt-2">Asikur Rahman </p>
                             </div>
                         </div>
 
                         <div class="col-sm-4 service-1-w3pvt serve-gd2">
                             <div class="serve-grid test-gd mt-4">
-                                <img src="uassets/images/t2.jpg" alt="" class="img-fluid image1">
+                                <img src="<c:url value="uassets/images/t2.jpg"/>"  alt="" class="img-fluid image1">
                                 <p class="mt-2">Robayet Islam </p>
                             </div>
                             <div class="serve-grid test-gd mt-4">
-                                <img src="uassets/images/t1.jpg" alt="" class="img-fluid image1">
+                                <img src="<c:url value="uassets/images/t1.jpg"/>"  alt="" class="img-fluid image1">
                                 <p class="mt-2">Fazly Rabbi </p>
                             </div>
                         </div>
                         <div class="col-sm-4 service-1-w3pvt serve-gd1">
                             <div class="serve-grid test-gd mt-4">
-                                <img src="uassets/images/t4.jpg" alt="" class="img-fluid image1">
+                                <img src="<c:url value="uassets/images/t4.jpg"/>"  alt="" class="img-fluid image1">
                                 <p class="mt-2">MM Jitu </p>
                             </div>
                         </div>

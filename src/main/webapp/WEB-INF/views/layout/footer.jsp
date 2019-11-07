@@ -1,11 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!-- footer -->
     <footer class="footer-content py-5">
         <div class="container py-md-3">
             <div class="footer-top text-center">
                 <h2>
-                    <a class="navbar-brand pt-3 mb-5" href="/home">
+                    <a class="navbar-brand pt-3 mb-5" href="<c:url value="/home"/>" >
                         <span class="fa fa-recycle"></span> Loan Management
                     </a>
                 </h2>
@@ -17,7 +18,7 @@
                         <hr>
                         <ul class="list-info-wthree">
                             <li>
-                                <a href="about.html"><span class="fa fa-angle-double-right" aria-hidden="true"></span>
+                                <a href="#"><span class="fa fa-angle-double-right" aria-hidden="true"></span>
                                     Our Mission
                                 </a>
                             </li>
@@ -32,7 +33,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="contact.html"><span class="fa fa-angle-double-right" aria-hidden="true"></span>
+                                <a href="#"><span class="fa fa-angle-double-right" aria-hidden="true"></span>
                                     Find us
                                 </a>
                             </li>
@@ -50,27 +51,27 @@
                         <hr>
                         <ul class="list-info-wthree">
                             <li>
-                                <a href="index.html"><span class="fa fa-angle-double-right" aria-hidden="true"></span>
+                                <a href="#"><span class="fa fa-angle-double-right" aria-hidden="true"></span>
                                     Home
                                 </a>
                             </li>
                             <li>
-                                <a href="about.html"><span class="fa fa-angle-double-right" aria-hidden="true"></span>
+                                <a href="#"><span class="fa fa-angle-double-right" aria-hidden="true"></span>
                                     About Us
                                 </a>
                             </li>
                             <li>
-                                <a href="single.html"><span class="fa fa-angle-double-right" aria-hidden="true"></span>
+                                <a href="#"><span class="fa fa-angle-double-right" aria-hidden="true"></span>
                                     Single Page
                                 </a>
                             </li>
                             <li>
-                                <a href="about.html"><span class="fa fa-angle-double-right" aria-hidden="true"></span>
+                                <a href="#"><span class="fa fa-angle-double-right" aria-hidden="true"></span>
                                     Team
                                 </a>
                             </li>
                             <li>
-                                <a href="contact.html"><span class="fa fa-angle-double-right" aria-hidden="true"></span>
+                                <a href="#"><span class="fa fa-angle-double-right" aria-hidden="true"></span>
                                     Contact Us
                                 </a>
                             </li>
@@ -83,7 +84,7 @@
                         <hr>
                         <ul class="list-info-wthree">
                             <li>
-                                <a href="about.html"><span class="fa fa-angle-double-right" aria-hidden="true"></span>
+                                <a href="#"><span class="fa fa-angle-double-right" aria-hidden="true"></span>
                                     Our Mission
                                 </a>
                             </li>
@@ -98,7 +99,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="contact.html"><span class="fa fa-angle-double-right" aria-hidden="true"></span>
+                                <a href="#"><span class="fa fa-angle-double-right" aria-hidden="true"></span>
                                     Find us
                                 </a>
                             </li>
@@ -116,7 +117,7 @@
                         <hr>
                         <div class="last-w3-pvt-contact">
                             <p>
-                                <a href="mailto:example@email.com">info@example.com</a>
+                                <a href="#">info@example.com</a>
                             </p>
                         </div>
                         <div class="last-w3-pvt-contact my-2">
@@ -139,7 +140,7 @@
         <div class="container">
             <div class="row">
                 <p class="copy-right-grids text-md-left text-center my-sm-4 my-4 col-md-6">© 2019 Repay. All Rights Reserved | Design by
-                    <a href="http://w3layouts.com/"> W3layouts </a>
+                    <a href="#"> W3layouts </a>
                 </p>
                 <div class="w3-pvt-footer text-md-right text-center mt-4 col-md-5">
                     <ul class="list-unstyled w3-pvt-icons">

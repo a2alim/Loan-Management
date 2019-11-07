@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <jsp:include page="../layout/adminheader.jsp" />
@@ -17,7 +18,7 @@
     	 		</div>
     	 		<div class="mailer-name"> 			
     	 				<h5><a href="#">Abdul Alim</a></h5>  	 				
-    	 			     <h6><a href="mailto:info@example.com">ador.abdulalim@gmail.com</a></h6>   
+    	 			     <h6><a href="#">ador.abdulalim@gmail.com</a></h6>   
     	 		</div>
     	 	    <div class="clearfix"> </div>
     	 	</div>
@@ -41,7 +42,7 @@
 							<div class="alert alert-info">
 								Please fill details to send a new message
 							</div>
-							<form class="com-mail" action="/sendEmail" method="get">
+							<form class="com-mail" action="<c:url value="/sendEmail"/>" method="get">
 								<input type="text" name="mail" id="mail" value="${email}" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'To';}">
 								<input type="text" name="sub" id="sub" value="Subject :" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Subject';}">
 								

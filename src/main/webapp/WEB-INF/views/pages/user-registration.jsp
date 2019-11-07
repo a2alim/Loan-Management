@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <jsp:include page="../layout/header.jsp" />
 
 <section class="content-info py-5">
@@ -10,7 +10,7 @@
 			<h3 class="title-w3ls mb-5" style="color: green;">Please Registation</h3>
 		</div>
 		<div class="contact-w3ls-form mt-5">
-			<form action="/save" class="w3-pvt-contact-fm" method="post">
+			<form action="<c:url value="/save"/>"  class="w3-pvt-contact-fm" method="post">
 				<div class="row">
 					<div class="col-lg-6">
 						<div class="form-group">

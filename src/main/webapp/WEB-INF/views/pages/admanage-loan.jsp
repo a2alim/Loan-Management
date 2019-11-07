@@ -37,9 +37,9 @@
 					<td>${loan.totalPayableAmount}</td>
 					<td>${loan.totalInstallment}</td>
 					<td><a class="btn btn-success"
-						href="/edit-loan/${loan.loanId}"><i class="fa fa-edit"></i></a></td>
+						href="<c:url value="/edit-loan/${loan.loanId}"/>" ><i class="fa fa-edit"></i></a></td>
 					<td> <a
-						class="btn btn-danger" href="/delete-loan/${loan.loanId}"><i
+						class="btn btn-danger" href="<c:url value="/delete-loan/${loan.loanId}"/>" ><i
 							class="fa fa-trash"></i></a></td>
 				</tr>
 			</c:forEach>

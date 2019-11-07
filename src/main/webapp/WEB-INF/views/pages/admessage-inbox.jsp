@@ -14,7 +14,7 @@
 				style="color: green; margin-bottom: 20px;">Manage Customers Message</h2>
 		</div>
 		<div class="contact-w3ls-form mt-5" style="margin-left: -60px;">
-			<form action="/adsearch-contact" method="post">
+			<form  action="<c:url value="/adsearch-contact"/>"  method="post">
 				<div class="row">
 
 					<div class="col-lg-6">
@@ -57,7 +57,7 @@
 								<td>${contact.message}</td>
 								
 								<td><a class="btn btn-success"
-									href="/sendEmail/${contact.contactId}"><i
+									href="<c:url value="/sendEmail/${contact.contactId}"/>"><i
 										class="fa fa-reply"></i> Reply</a></td>
 								
 							</tr>

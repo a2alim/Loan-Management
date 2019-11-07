@@ -13,7 +13,7 @@
 				Installment Status</h3>
 		</div>
 		<div class="contact-w3ls-form mt-5">
-			<form action="/get-installment-status">
+			<form action="<c:url value="/get-installment-status"/>" >
 				<div class="row" style="margin-left: 96px;">
 
 					<div class="col-lg-6">

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+	
 <jsp:include page="../layout/adminheader.jsp" />
 
 <div>
@@ -15,7 +16,7 @@
 			<h1>Update Loan Information</h1>
 		</div>
 		<div class="signup-block">
-			<form action="/update-loan" class="w3-pvt-contact-fm" method="post">
+			<form action="<c:url value="/update-loan"/>" class="w3-pvt-contact-fm" method="post">
 				<div class="row">
 					<div class="col-md-1"></div>
 					<div class="col-lg-5">

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <div class="copyrights" style="background-color: gray;">
 	<div class="container py-md-3">
 		<p style="color: white;">MD. Abdul Alim</p>
@@ -22,41 +23,41 @@
 			<li id="menu-home"><a href="/userinfo"><i class="fa fa-users"></i><span>Manage
 						user</span><span class="fa fa-angle-right" style="float: right"></span></a>
 				<ul>
-					<li><a href="/userinfo">View User Info</a></li>
-					<li><a href="/adcreate-user">Create User</a></li>
+					<li><a href="<c:url value="/userinfo"/>" >View User Info</a></li>
+					<li><a href="<c:url value="/adcreate-user"/>" >Create User</a></li>
 				</ul></li>
 			<li><a href="#"><i class="fa fa-bank"></i><span>Loans</span><span
 					class="fa fa-angle-right" style="float: right"></span></a>
 				<ul>
-					<li><a href="/pending-loan">Approve Loan</a></li>
-					<li><a href="/admanage-loan">Manage Loan</a></li>
+					<li><a href="<c:url value="/pending-loan"/>"  >Approve Loan</a></li>
+					<li><a href="<c:url value="/admanage-loan"/>" >Manage Loan</a></li>
 				</ul></li>
-			<li id="menu-comunicacao"><a href="/report"><i
+			<li id="menu-comunicacao"><a  href="<c:url value="/report"/>" ><i
 					class="fa fa-book nav_icon"></i><span>View Report</span></a>
 			</li>
 			<li id="menu-academico"><a href="#"><i
 					class="fa fa-file-text"></i><span>Pages</span><span
 					class="fa fa-angle-right" style="float: right"></span></a>
 				<ul id="menu-academico-sub">
-					<li id="menu-academico-boletim"><a href="/logout">Login</a></li>
-					<li id="menu-academico-avaliacoes"><a href="/adcreate-user">Sign
+					<li id="menu-academico-boletim"><a href="<c:url value="/logout"/>" >Login</a></li>
+					<li id="menu-academico-avaliacoes"><a href="<c:url value="/adcreate-user"/>" >Sign
 							Up</a></li>
 				</ul></li>
-			<li><a href="/admanage-installment""><i class="	fa fa-cc-mastercard"></i><span>Installment</span></a></li>
-			<li><a href="/adcreate-user"><i class="fa fa-user"></i><span>Create
+			<li><a href="<c:url value="/admanage-installment"/>"  ><i class="	fa fa-cc-mastercard"></i><span>Installment</span></a></li>
+			<li><a href="<c:url value="/adcreate-user"/>" ><i class="fa fa-user"></i><span>Create
 						user</span></a></li>
 			<li><a href="#"><i class="fa fa-envelope"></i><span>Mailbox</span><span
 					class="fa fa-angle-right" style="float: right"></span></a>
 				<ul id="menu-academico-sub">
-					<li id="menu-academico-avaliacoes"><a href="/messageinbox">Mail Inbox </a></li>
-					<li id="menu-academico-boletim"><a href="/compose-email">Compose
+					<li id="menu-academico-avaliacoes"><a href="<c:url value="/messageinbox"/>"  >Mail Inbox </a></li>
+					<li id="menu-academico-boletim"><a  href="<c:url value="/compose-email"/>"  >Compose
 							Email</a></li>
 				</ul></li>
 			<li><a href="#"><i class="fa fa-cog"></i><span>System</span><span
 					class="fa fa-angle-right" style="float: right"></span></a>
 				<ul id="menu-academico-sub">
-					<li id="menu-academico-avaliacoes"><a href="/errorpage">404</a></li>
-					<li id="menu-academico-boletim"><a href="/blankpage">Blank</a></li>
+					<li id="menu-academico-avaliacoes"><a href="<c:url value="/errorpage"/>" >404</a></li>
+					<li id="menu-academico-boletim"><a href="<c:url value="/blankpage"/>" >Blank</a></li>
 				</ul></li>
 
 		</ul>
@@ -89,10 +90,10 @@
 			});
 </script>
 <!--scrolling js-->
-<script src="/assets/js/jquery.nicescroll.js"></script>
-<script src="/assets/js/scripts.js"></script>
+<script src="<c:url value="/assets/js/jquery.nicescroll.js"/>" ></script>
+<script src="<c:url value="/assets/js/scripts.js"/>" ></script>
 <!--//scrolling js-->
-<script src="/assets/js/bootstrap.js">
+<script src="<c:url value="/assets/js/bootstrap.js"/>" >
 	
 </script>
 <!-- mother grid end here-->

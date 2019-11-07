@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <jsp:include page="../layout/adminheader.jsp" />
 
 <div class="row" style="margin-left: 40px; margin-top:40px">
@@ -52,10 +53,10 @@
 				<td>${pendingLoan.installmentAmount}</td>
 			</tr>
 			<tr>
-				<td><a class="btn btn-success" href="/status/approved/${pendingLoan.loanId}">Approved Loan</a></td>
-				<td><a class="btn btn-primary" href="/status/waiting/${pendingLoan.loanId}"> Waiting Loan</a></td>
-				<td><a class="btn btn-danger" href="/status/rejected/${pendingLoan.loanId}">Rejected Loan</a></td>
-				<td><a class="btn btn-danger" href="/status/delete/${pendingLoan.loanId}">delete Loan</a></td>
+				<td><a class="btn btn-success" href="<c:url value="/status/approved/${pendingLoan.loanId}"/>">Approved Loan</a></td>
+				<td><a class="btn btn-primary" href="<c:url value="/status/waiting/${pendingLoan.loanId}"/>" > Waiting Loan</a></td>
+				<td><a class="btn btn-danger" href="<c:url value="/status/rejected/${pendingLoan.loanId}"/>" >Rejected Loan</a></td>
+				<td><a class="btn btn-danger" href="<c:url value="/status/delete/${pendingLoan.loanId}"/>" >delete Loan</a></td>
 			</tr>
 			
 	</table>

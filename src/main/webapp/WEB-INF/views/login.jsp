@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -19,7 +20,7 @@
 				<div class="col-md-12">
 					<h3 align="center" style="color: #0000FF; margin:20px">Welcome to <br> Loan Management</h3>
 				</div>
-				<form action="/login" method="post">
+				<form  action="<c:url value="/login"/>"  method="post" >
 					<div class="col-md-12">
 						<h3 style="color: green; margin-bottom: 20px;" align="center">Login</h3>
 						<div class="form-group">
@@ -48,7 +49,7 @@
 					</div>
 				</form>
 				<p align="center">
-					New user? <a style="color: black;" href="/registration">Registration Here</a>
+					New user? <a style="color: black;"  href="<c:url value="/registration"/>" >Registration Here</a>
 				</p>
 			</div>
 		</div>

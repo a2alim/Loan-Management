@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+	
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -21,19 +23,18 @@
 </script>
 <!-- //Meta tag Keywords -->
 <!-- Custom-Files -->
-<link rel="stylesheet" href="/uassets/css/bootstrap.css">
+<link rel="stylesheet" href="<c:url value="/uassets/css/bootstrap.css"/>">
 <!-- Bootstrap-Core-CSS -->
-<link rel="stylesheet" href="/uassets/css/style.css" type="text/css"
+<link rel="stylesheet" href="<c:url value="/uassets/css/style.css"/>"  type="text/css"
 	media="all" />
-<link rel="stylesheet" href="/uassets/css/slider.css" type="text/css"
+<link rel="stylesheet"  href="<c:url value="/uassets/css/slider.css"/>"  type="text/css"
 	media="all" />
 <!-- Style-CSS -->
 <!-- font-awesome-icons -->
-<link href="/uassets/css/font-awesome.css" rel="stylesheet">
+<link  href="<c:url value="/uassets/css/font-awesome.css"/>"   rel="stylesheet">
 <!-- //font-awesome-icons -->
 <!-- /Fonts -->
-<link
-	href="//fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800"
+<link  href="<c:url value="//fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800"/>"  
 	rel="stylesheet">
 
 <!-- //Fonts -->
@@ -52,7 +53,7 @@
 						<!-- logo -->
 						<div id="logo">
 							<h1>
-								<a href="/"><span class="fa fa-recycle mr-2"></span>Loan <br /> Management</a>
+								<a  href="<c:url value="/"/>"  ><span class="fa fa-recycle mr-2"></span>Loan <br /> Management</a>
 							</h1>
 						</div>
 						<!-- //logo -->
@@ -64,7 +65,7 @@
 										type="checkbox" id="drop" />
 									<ul class="menu">
 										<li class="active"><a href="/home">Home</a></li>
-										<li><a href="/contactus">Contact Us</a></li>
+										<li><a  href="<c:url value="/contactus"/>">Contact Us</a></li>
 										<li>
 											<!-- First Tier Drop Down --> <label for="drop-2"
 											class="toggle toogle-2">Actions <span
@@ -73,13 +74,13 @@
 												aria-hidden="true"> </span></a> <input type="checkbox"
 											id="drop-2" />
 											<ul>
-												<li><a href="/applyforloan" class="drop-text">Apply For Loan</a></li>
-												<li><a href="/user-loan-status/${pageContext.request.remoteUser}" class="drop-text">Loan Status</a></li>
-												<li><a href="/user-installment" class="drop-text">Installment Payemetn</a></li>
-												<li><a href="/installment-status" class="drop-text">Installment Status</a></li>
+												<li><a  href="<c:url value="/applyforloan"/>" class="drop-text">Apply For Loan</a></li>
+												<li><a  href="<c:url value="/user-loan-status/${pageContext.request.remoteUser}"/>" class="drop-text">Loan Status</a></li>
+												<li><a  href="<c:url value="/user-installment"/>" class="drop-text">Installment Payemetn</a></li>
+												<li><a href="<c:url value="/installment-status"/>"  class="drop-text">Installment Status</a></li>
 											</ul>
 										</li>
-										<li><a href="/logout">Logout</a></li>
+										<li><a  href="<c:url value="/logout"/>" >Logout</a></li>
 									</ul>
 								</nav>
 							</div>
@@ -87,7 +88,7 @@
 							<div class="justify-content-center">
 								<!-- search -->
 								<div class="apply-w3-pvt ml-lg-3">
-									<a class="btn read" href="/userregistration" role="button">Registration
+									<a class="btn read"   href="<c:url value="/userregistration"/>"  role="button">Registration
 										Now</a>
 								</div>
 								<!-- //search -->
@@ -121,8 +122,8 @@
 												velit. Praesent ullamcorper dui turpis.</p>
 
 											<div class="test-info text-left mt-lg-5 mt-4">
-												<a href="/applyforloan" class="btn mr-2">Apply For Loan</a>
-												<a href="/contactus" class="btn">Contact Us</a>
+												<a  href="<c:url value="/applyforloan"/>"  class="btn mr-2">Apply For Loan</a>
+												<a  href="<c:url value="/contactus"/>"  class="btn">Contact Us</a>
 											</div>
 										</div>
 
@@ -142,8 +143,8 @@
 											<p>Integer sit amet mattis quam, sit amet ultricies
 												velit. Praesent ullamcorper dui turpis.</p>
 											<div class="test-info text-left mt-lg-5 mt-4">
-												<a href="/applyforloan" class="btn mr-2">Apply For Loan</a>
-												<a href="/contactus" class="btn">Contact Us</a>
+												<a  href="<c:url value="/applyforloan"/>"  class="btn mr-2">Apply For Loan</a>
+												<a  href="<c:url value="/contactus"/>"  class="btn">Contact Us</a>
 											</div>
 										</div>
 									</div>
@@ -162,8 +163,8 @@
 											<p>Integer sit amet mattis quam, sit amet ultricies
 												velit. Praesent ullamcorper dui turpis.</p>
 											<div class="test-info text-left mt-lg-5 mt-4">
-												<a href="/applyforloan" class="btn mr-2">Apply For Loan</a>
-												<a href="/contactus" class="btn">Contact Us</a>
+												<a  href="<c:url value="/applyforloan"/>"  class="btn mr-2">Apply For Loan</a>
+												<a  href="<c:url value="/contactus"/>"  class="btn">Contact Us</a>
 											</div>
 										</div>
 

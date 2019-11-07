@@ -7,15 +7,15 @@
 <section class="content-info py-5">
 	<div class="container py-md-5" style="margin-top: 25px;">
 
-		
+
 
 		<div class="text-center px-lg-5">
-			
+
 			<h2 class="title-w3ls mb-5"
 				style="color: green; margin-bottom: 20px;">Manage Installment</h2>
 		</div>
 		<div class="contact-w3ls-form mt-5" style="margin-left: -60px;">
-			<form action="/adsearch-installment">
+			<form action="<c:url value="/adsearch-installment"/>">
 				<div class="row">
 
 					<div class="col-lg-6">
@@ -28,16 +28,37 @@
 
 				</div>
 			</form>
-			
+
 			<c:if test='${Boolean.parseBoolean(installmentListView.isEmpty())}'>
-			<h1 align="center" style="color: red; margin-top: 200px;">There
-				is no Matching Installment.</h1>
-			<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-		</c:if>
-			
+				<h1 align="center" style="color: red; margin-top: 200px;">There
+					is no Matching Installment.</h1>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+			</c:if>
+
 			<div style="margin-bottom: 200px;">
 				<table class="table table-striped table-bordered table-primary"
-					style=" margin-right: 50px;">
+					style="margin-right: 50px;">
 					<c:if test='${!installmentListView.isEmpty()}'>
 						<thead>
 							<tr>
@@ -72,11 +93,9 @@
 								<td>${totalInstallment}</td>
 								<td>${installment.installmentAmount}</td>
 								<td>${installment.installmentDate}</td>
-								<td><a class="btn btn-success"
-									href="/user/edit/${installment.installmentId}"><i
+								<td><a class="btn btn-success" href="#"><i
 										class="fa fa-edit"></i></a></td>
-								<td><a class="btn btn-danger"
-									href="/user/delete/${loan.installmentId}"><i
+								<td><a class="btn btn-danger" href="#"><i
 										class="fa fa-trash"></i></a></td>
 							</tr>
 						</c:forEach>

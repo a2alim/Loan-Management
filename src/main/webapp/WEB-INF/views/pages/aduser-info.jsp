@@ -31,8 +31,8 @@
 					<td>${user.address}</td>
 					<td>${user.username}</td>
 					<td><a class="btn btn-success"
-						href="/api/user/edit/${user.userId}"><i class="fa fa-edit"></i></a> <a
-						class="btn btn-danger" href="/api/user/deleteuserinfo/${user.userId}"><i
+						href="<c:url value="/api/user/edit/${user.userId}"/>" ><i class="fa fa-edit"></i></a> <a
+						class="btn btn-danger" href="<c:url value="/api/user/deleteuserinfo/${user.userId}"/>"  ><i
 							class="fa fa-trash"></i></a></td>
 				</tr>
 			</c:forEach>

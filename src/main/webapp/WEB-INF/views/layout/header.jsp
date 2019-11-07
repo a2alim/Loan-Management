@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -21,19 +22,18 @@
 </script>
 <!-- //Meta tag Keywords -->
 <!-- Custom-Files -->
-<link rel="stylesheet" href="/uassets/css/bootstrap.css">
+<link rel="stylesheet" href="<c:url value="/uassets/css/bootstrap.css"/>">
 <!-- Bootstrap-Core-CSS -->
-<link rel="stylesheet" href="/uassets/css/style.css" type="text/css"
+<link rel="stylesheet" href="<c:url value="/uassets/css/style.css"/>" type="text/css"
 	media="all" />
-<link rel="stylesheet" href="/uassets/css/slider.css" type="text/css"
+<link rel="stylesheet" href="<c:url value="/uassets/css/slider.css"/>" type="text/css"
 	media="all" />
 <!-- Style-CSS -->
 <!-- font-awesome-icons -->
-<link href="/uassets/css/font-awesome.css" rel="stylesheet">
+<link href="<c:url value="/uassets/css/font-awesome.css"/>" rel="stylesheet">
 <!-- //font-awesome-icons -->
 <!-- /Fonts -->
-<link
-	href="//fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800"
+<link href="<c:url value="//fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800"/>"
 	rel="stylesheet">
 
 <!-- //Fonts -->
@@ -53,7 +53,7 @@
 
 		<!-- header -->
 		<header >
-			<img src="/uassets/images/navPic2.jpg" class="banner" alt="" />
+			<img src="<c:url value="/uassets/images/navPic2.jpg"/>" class="banner" alt="" />
 			<div class="container" style="position: relative;">
 				<div class="row">
 					<div
@@ -61,7 +61,7 @@
 						<!-- logo -->
 						<div id="logo">
 							<h1>
-								<a href="/"><span class="fa fa-recycle mr-2"></span>Loan <br />
+								<a href="<c:url value="/"/>" ><span class="fa fa-recycle mr-2"></span>Loan <br />
 									Management</a>
 							</h1>
 						</div>
@@ -73,8 +73,8 @@
 									<label for="drop" class="toggle">Menu</label> <input
 										type="checkbox" id="drop" />
 									<ul class="menu">
-										<li class="active"><a href="/home">Home</a></li>
-										<li><a href="/contactus">Contact Us</a></li>
+										<li class="active"><a href="<c:url value="/home"/>" >Home</a></li>
+										<li><a href="<c:url value="/contactus"/>" >Contact Us</a></li>
 										<li>
 											<!-- First Tier Drop Down --> <label for="drop-2"
 											class="toggle toogle-2">Actions <span
@@ -82,13 +82,13 @@
 										</label> <a href="#">Loans <span class="fa fa-angle-down" aria-hidden="true">
 												</span></a> <input type="checkbox" id="drop-2" />
 											<ul>
-												<li><a href="/applyforloan" class="drop-text">Apply For Loan</a></li>
-												<li><a href="/user-loan-status/${pageContext.request.remoteUser}" class="drop-text">Loan Status</a></li>
-												<li><a href="/user-installment" class="drop-text">Installment Payemetn</a></li>
-												<li><a href="/installment-status" class="drop-text">Installment Status</a></li>
+												<li><a href="<c:url value="/applyforloan"/>" class="drop-text">Apply For Loan</a></li>
+												<li><a href="<c:url value="/user-loan-status/${pageContext.request.remoteUser}"/>"  class="drop-text">Loan Status</a></li>
+												<li><a href="<c:url value="/user-installment"/>" class="drop-text">Installment Payemetn</a></li>
+												<li><a href="<c:url value="/installment-status"/>"  class="drop-text">Installment Status</a></li>
 											</ul>
 										</li>
-										<li><a href="/logout">Logout</a></li>
+										<li><a href="<c:url value="/logout"/>" >Logout</a></li>
 									</ul>
 								</nav>
 							</div>
@@ -96,7 +96,7 @@
 							<div class="justify-content-center">
 								<!-- search -->
 								<div class="apply-w3-pvt ml-lg-3">
-									<a class="btn read" href="/userregistration" role="button">User Registration
+									<a class="btn read"  href="<c:url value="/userregistration"/>"  role="button">User Registration
 										Now</a>
 								</div>
 								<!-- //search -->

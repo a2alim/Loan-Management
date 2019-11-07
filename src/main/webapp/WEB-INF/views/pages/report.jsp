@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <jsp:include page="../layout/adminheader.jsp" />
 
@@ -9,7 +10,7 @@
 			<h1>Report</h1>
 		</div>
 		<div class="signup-block">
-			<form action="/api/user/user-report" method="post">
+			<form action="<c:url value="/api/user/user-report"/>"  method="post">
 
 				<div class="row justify-content-center">
 					<div class="form-group" >

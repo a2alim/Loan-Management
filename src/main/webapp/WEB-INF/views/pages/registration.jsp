@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -21,7 +22,7 @@
 			
 		</div>
 		<div class="contact-w3ls-form mt-4">
-			<form action="/save" class="w3-pvt-contact-fm" method="post">
+			<form  action="<c:url value="/save"/>" class="w3-pvt-contact-fm" method="post">
 				<div class="row">
 					<div class="col-md-2"></div>
 					<div class="col-lg-4">
@@ -81,7 +82,7 @@
 				</div>
 				<div class="row">
 					<div class="form-group mx-auto mt-3">
-						<p>Already have an account <a href="/logout">Lgin here</a></p>
+						<p>Already have an account <a href="<c:url value="/logout"/>" >Lgin here</a></p>
 					</div>
 				</div>
 			</form>

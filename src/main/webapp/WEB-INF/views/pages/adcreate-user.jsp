@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+	
 <jsp:include page="../layout/adminheader.jsp" />
 
 <div>
@@ -9,7 +10,7 @@
 			<h1>Registration Form</h1>
 		</div>
 		<div class="signup-block">
-			<form action="/aduser-save" method="post">
+			<form action="<c:url value="/aduser-save"/>"  method="post">
 
 				<div class="row">
 					<div class="form-group" >
@@ -76,10 +77,10 @@
 			</form>
 			<div class="sign-down">
 				<h4>
-					Already have an account? <a href="/logout"> Login here.</a>
+					Already have an account? <a href="<c:url value="/logout"/>" > Login here.</a>
 				</h4>
 				<h5>
-					<a href="/adminhome">Go Back to Home</a>
+					<a href="<c:url value="/adminhome"/>"  >Go Back to Home</a>
 				</h5>
 			</div>
 		</div>
