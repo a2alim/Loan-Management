@@ -31,14 +31,9 @@
 					<li><a href="/pending-loan">Approve Loan</a></li>
 					<li><a href="/admanage-loan">Manage Loan</a></li>
 				</ul></li>
-			<li id="menu-comunicacao"><a href="#"><i
-					class="fa fa-book nav_icon"></i><span>View Report</span><span
-					class="fa fa-angle-right" style="float: right"></span></a>
-				<ul id="menu-comunicacao-sub">
-					<li id="menu-mensagens"><a href="buttons.html">Loan Report</a></li>
-					<li id="menu-arquivos"><a href="typography.html">Installment Report</a></li>
-					<li id="menu-arquivos"><a href="icons.html">User Report</a></li>
-				</ul></li>
+			<li id="menu-comunicacao"><a href="/report"><i
+					class="fa fa-book nav_icon"></i><span>View Report</span></a>
+			</li>
 			<li id="menu-academico"><a href="#"><i
 					class="fa fa-file-text"></i><span>Pages</span><span
 					class="fa fa-angle-right" style="float: right"></span></a>

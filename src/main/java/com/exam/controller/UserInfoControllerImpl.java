@@ -1,5 +1,9 @@
 package com.exam.controller;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.nio.file.Files;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -7,7 +11,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -19,7 +25,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.exam.model.ApplyLoan;
+import com.exam.jasperreports.SimpleReportExporter;
+import com.exam.jasperreports.SimpleReportFiller;
 import com.exam.model.UserInfo;
 import com.exam.service.UserInfoService;
 @RestController
@@ -27,6 +34,12 @@ import com.exam.service.UserInfoService;
 public class UserInfoControllerImpl implements UserInfoController{
 	@Autowired
 	PasswordEncoder passwordEncoder;
+	
+	@Autowired
+	private ServletContext servletContext;
+	
+	@Autowired
+	private SimpleReportFiller simpleReportFiller;
 	
 	@Autowired
 	UserInfoService userInfoService;
@@ -161,6 +174,72 @@ public class UserInfoControllerImpl implements UserInfoController{
 		model.put("userInfo", userInfo);
 		System.out.println(userInfo);
 		return new ModelAndView("pages/applyforloan", model);
+	}
+	
+	@GetMapping("/pdf")
+	public String pdf(HttpServletResponse response) {
+		response.setContentType("application/pdf");
+		try {
+			SimpleReportExporter simpleExporter = new SimpleReportExporter();
+
+			simpleReportFiller.setReportFileName("report3.jrxml");
+			simpleReportFiller.compileReport();
+
+			Map<String, Object> parameters = new HashMap<>();
+
+			simpleReportFiller.setParameters(parameters);
+			simpleReportFiller.fillReport();
+			simpleExporter.setJasperPrint(simpleReportFiller.getJasperPrint());
+
+			simpleExporter.exportToPdf("report3.pdf", "olonsoft");
+
+			File file = new File("src/main/resources/reports/report3.pdf");
+			response.setHeader("Content-Type", servletContext.getMimeType(file.getName()));
+			response.setHeader("Content-Length", String.valueOf(file.length()));
+			response.setHeader("Content-Disposition", "inline; filename=\"report3.pdf\"");
+			Files.copy(file.toPath(), response.getOutputStream());
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
+	@GetMapping("/user-report")
+	public String pdfRport(HttpServletResponse response, HttpServletRequest request) {
+		response.setContentType("application/pdf");
+		String username = request.getParameter("username");
+		System.out.println(username);
+		try {
+			SimpleReportExporter simpleExporter = new SimpleReportExporter();
+
+			simpleReportFiller.setReportFileName("report1.jrxml");
+			simpleReportFiller.compileReport();
+
+			Map<String, Object> parameters = new HashMap<>();
+			parameters.put("username", username);
+
+			simpleReportFiller.setParameters(parameters);
+			simpleReportFiller.fillReport();
+			simpleExporter.setJasperPrint(simpleReportFiller.getJasperPrint());
+
+			simpleExporter.exportToPdf("report1.pdf", "olonsoft");
+
+			File file = new File("src/main/resources/reports/report1.pdf");
+			response.setHeader("Content-Type", servletContext.getMimeType(file.getName()));
+			response.setHeader("Content-Length", String.valueOf(file.length()));
+			response.setHeader("Content-Disposition", "inline; filename=\"report1.pdf\"");
+			Files.copy(file.toPath(), response.getOutputStream());
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
 	}
 	
 }

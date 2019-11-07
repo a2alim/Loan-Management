@@ -86,6 +86,11 @@ public class HomeController {
 	}
 	
 	
+	@GetMapping(value = "/report")
+	public ModelAndView reportPage() {
+		return new ModelAndView("/pages/adreport");
+	}
+	
 	@GetMapping(value = "/compose-email")
 	public ModelAndView composeMaail() {
 		return new ModelAndView("/pages/adcompose-email");
