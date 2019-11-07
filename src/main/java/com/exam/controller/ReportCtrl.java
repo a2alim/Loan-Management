@@ -84,7 +84,7 @@ public class ReportCtrl{
 			simpleReportFiller.compileReport();
 
 			Map<String, Object> parameters = new HashMap<>();
-			parameters.put("username", uid);
+			parameters.put("userId", uid);
 
 			simpleReportFiller.setParameters(parameters);
 			simpleReportFiller.fillReport();
@@ -96,6 +96,41 @@ public class ReportCtrl{
 			response.setHeader("Content-Type", servletContext.getMimeType(file.getName()));
 			response.setHeader("Content-Length", String.valueOf(file.length()));
 			response.setHeader("Content-Disposition", "inline; filename=\"userreportbyid.pdf\"");
+			Files.copy(file.toPath(), response.getOutputStream());
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	@PostMapping("/user-report-byUsernmae")
+	public String userReportByUsername(HttpServletResponse response, HttpServletRequest request) {
+		response.setContentType("application/pdf");
+		String username = request.getParameter("username");
+		System.out.println(username+"::::::::::::::::::::::::::::::ok::::::::::::::::::::::::::::");
+		try {
+			SimpleReportExporter simpleExporter = new SimpleReportExporter();
+
+			simpleReportFiller.setReportFileName("userreportbyusername.jrxml");
+			simpleReportFiller.compileReport();
+
+			Map<String, Object> parameters = new HashMap<>();
+			parameters.put("username", username);
+
+			simpleReportFiller.setParameters(parameters);
+			simpleReportFiller.fillReport();
+			simpleExporter.setJasperPrint(simpleReportFiller.getJasperPrint());
+
+			simpleExporter.exportToPdf("userreportbyusername.pdf", "olonsoft");
+
+			File file = new File("src/main/resources/reports/userreportbyusername.pdf");
+			response.setHeader("Content-Type", servletContext.getMimeType(file.getName()));
+			response.setHeader("Content-Length", String.valueOf(file.length()));
+			response.setHeader("Content-Disposition", "inline; filename=\"userreportbyusername.pdf\"");
 			Files.copy(file.toPath(), response.getOutputStream());
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block

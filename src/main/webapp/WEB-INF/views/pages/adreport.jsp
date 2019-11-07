@@ -35,8 +35,8 @@
 			style="width: 25rem; margin-left: 3rem; margin-top: 2rem;">
 			<div class="card-body">
 				<h2 class="text-primary">Show User By Username</h2>
-				<form>
-					<input type="text" name="username" /> <input type="button"
+				<form action="/user-report-byUsernmae" method="post">
+					<input type="text" name="username" /> <input type="submit"
 						value="Show Report" class="btn btn-primary">
 				</form>
 			</div>
