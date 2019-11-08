@@ -20,7 +20,7 @@
 	</div>
 	<div class="menu">
 		<ul id="menu">
-			<li id="menu-home"><a href="/userinfo"><i class="fa fa-users"></i><span>Manage
+			<li id="menu-home"><a href="/userinfo"><i class="fa fa-user"></i><span>Manage
 						user</span><span class="fa fa-angle-right" style="float: right"></span></a>
 				<ul>
 					<li><a href="<c:url value="/userinfo"/>" >View User Info</a></li>
@@ -32,9 +32,21 @@
 					<li><a href="<c:url value="/pending-loan"/>"  >Approve Loan</a></li>
 					<li><a href="<c:url value="/admanage-loan"/>" >Manage Loan</a></li>
 				</ul></li>
+				
+			<li><a href="#"><i class="fa fa-envelope"></i><span>Mailbox</span><span
+					class="fa fa-angle-right" style="float: right"></span></a>
+				<ul id="menu-academico-sub">
+					<li id="menu-academico-avaliacoes"><a href="<c:url value="/messageinbox"/>"  >Mail Inbox </a></li>
+					<li id="menu-academico-boletim"><a  href="<c:url value="/compose-email"/>"  >Compose
+							Email</a></li>
+				</ul></li>
+					
 			<li id="menu-comunicacao"><a  href="<c:url value="/report"/>" ><i
 					class="fa fa-book nav_icon"></i><span>View Report</span></a>
 			</li>
+			
+			<li><a href="<c:url value="/admanage-installment"/>"  ><i class="	fa fa-cc-mastercard"></i><span>Installment</span></a></li>
+			
 			<li id="menu-academico"><a href="#"><i
 					class="fa fa-file-text"></i><span>Pages</span><span
 					class="fa fa-angle-right" style="float: right"></span></a>
@@ -43,16 +55,7 @@
 					<li id="menu-academico-avaliacoes"><a href="<c:url value="/adcreate-user"/>" >Sign
 							Up</a></li>
 				</ul></li>
-			<li><a href="<c:url value="/admanage-installment"/>"  ><i class="	fa fa-cc-mastercard"></i><span>Installment</span></a></li>
-			<li><a href="<c:url value="/adcreate-user"/>" ><i class="fa fa-user"></i><span>Create
-						user</span></a></li>
-			<li><a href="#"><i class="fa fa-envelope"></i><span>Mailbox</span><span
-					class="fa fa-angle-right" style="float: right"></span></a>
-				<ul id="menu-academico-sub">
-					<li id="menu-academico-avaliacoes"><a href="<c:url value="/messageinbox"/>"  >Mail Inbox </a></li>
-					<li id="menu-academico-boletim"><a  href="<c:url value="/compose-email"/>"  >Compose
-							Email</a></li>
-				</ul></li>
+			
 			<li><a href="#"><i class="fa fa-cog"></i><span>System</span><span
 					class="fa fa-angle-right" style="float: right"></span></a>
 				<ul id="menu-academico-sub">

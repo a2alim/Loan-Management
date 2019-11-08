@@ -44,7 +44,7 @@ public class FileUploadController {
                         "serveFile", path.getFileName().toString()).build().toString())
                 .collect(Collectors.toList()));
 
-        return new ModelAndView("pages/uploadForm");
+        return new ModelAndView("pages/registration");
     }
 
     @GetMapping("/files/{filename:.+}")

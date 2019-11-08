@@ -31,6 +31,7 @@ public class UserInfo implements Serializable {
 	@NotNull
 	private String password;
 	private boolean enabled;
+	private String filename;
 	
 	
 	private Date createdDate;
@@ -108,13 +109,23 @@ public class UserInfo implements Serializable {
 	public void setAddress(String address) {
 		this.address = address;
 	}
+	
+	
+	public String getFilename() {
+		return filename;
+	}
+	public void setFilename(String filename) {
+		this.filename = filename;
+	}
+	
 	@Override
 	public String toString() {
 		return "UserInfo [userId=" + userId + ", firstName=" + firstName + ", lastName=" + lastName + ", phone=" + phone
 				+ ", address=" + address + ", email=" + email + ", role=" + role + ", username=" + username
-				+ ", password=" + password + ", enabled=" + enabled + ", createdDate=" + createdDate + ", updateDate="
-				+ updateDate + "]";
+				+ ", password=" + password + ", enabled=" + enabled + ", filename=" + filename + ", createdDate="
+				+ createdDate + ", updateDate=" + updateDate + "]";
 	}
+	
 	
 	
 	

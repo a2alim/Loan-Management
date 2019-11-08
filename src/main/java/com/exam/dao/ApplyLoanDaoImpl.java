@@ -87,7 +87,7 @@ public class ApplyLoanDaoImpl implements CommonDao<ApplyLoan> {
 	}
 
 	public List<ApplyLoan> getUserLoanStatus(String currentUser) {
-		List<ApplyLoan> userLoanStatus = (List<ApplyLoan>)sessionFactory.getCurrentSession().createQuery("From ApplyLoan where username='"+currentUser+"' And status='pending' OR status= 'waiting' OR status= 'approved' ").setFetchSize(50).list();
+		List<ApplyLoan> userLoanStatus = (List<ApplyLoan>)sessionFactory.getCurrentSession().createQuery("From ApplyLoan where username='"+currentUser+"' ").setFetchSize(50).list();
 		return userLoanStatus;
 	}
 	

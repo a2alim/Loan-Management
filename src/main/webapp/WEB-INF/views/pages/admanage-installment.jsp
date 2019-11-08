@@ -4,8 +4,8 @@
 
 <jsp:include page="../layout/adminheader.jsp" />
 
-<section class="content-info py-5">
-	<div class="container py-md-5" style="margin-top: 25px;">
+<section>
+	<div class="container" style="margin-top: 25px; margin-right: 180px;">
 
 
 
@@ -14,7 +14,7 @@
 			<h2 class="title-w3ls mb-5"
 				style="color: green; margin-bottom: 20px;">Manage Installment</h2>
 		</div>
-		<div class="contact-w3ls-form mt-5" style="margin-left: -60px;">
+		<div class="row">
 			<form action="<c:url value="/adsearch-installment"/>">
 				<div class="row">
 
@@ -56,9 +56,9 @@
 				<br>
 			</c:if>
 
-			<div style="margin-bottom: 200px;">
-				<table class="table table-striped table-bordered table-primary"
-					style="margin-right: 50px;">
+			<div style="margin-bottom: 200px; margin-right: 2000px;">
+				<table class="table table-striped table-bordered"
+					style="">
 					<c:if test='${!installmentListView.isEmpty()}'>
 						<thead>
 							<tr>

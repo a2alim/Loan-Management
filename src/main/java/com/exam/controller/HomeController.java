@@ -1,18 +1,23 @@
 package com.exam.controller;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.sound.midi.Soundbank;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.exam.model.UserInfo;
@@ -96,14 +101,43 @@ public class HomeController {
 		return new ModelAndView("/pages/adcompose-email");
 	}
 	
-	@PostMapping(value = "/save")
-	public ModelAndView registration(HttpServletRequest request) {
+	@GetMapping("/userinfo")
+	public ModelAndView showAll() {
 		Map<String, Object> model = new HashMap<>();
+		List<UserInfo> userInfolist = userInfoService.getAll();
+		model.put("userList", userInfolist);
+		return new ModelAndView("pages/aduser-info", model);
+	}
+
+	@PostMapping(value = "/save")
+	 public ModelAndView userRegRoot(HttpServletRequest request,@RequestParam("filename") MultipartFile[] files) {
+		Map<String, Object> model = new HashMap<>();
+		
+		
+		 String uploadDir ="C:\\Users\\adora\\OneDrive\\Desktop\\LoanManagement\\src\\main\\resources\\static\\uassets\\usersImages";
+	        
+		 
+		 
+	        StringBuilder fileNames = new StringBuilder();
+	        Path fileNameAndPath = null;
+	        
+	        try {
+	            for (MultipartFile file : files) {
+	            	fileNameAndPath = Paths.get(uploadDir, file.getOriginalFilename());
+	                fileNames.append(file.getOriginalFilename());
+	                Files.write(fileNameAndPath, file.getBytes());
+	            }
+	            
+	        } catch (IOException e) {
+	        	model.put("error", false);
+	            model.put("msg", "Save failed");
+	            return new ModelAndView("pages/registration", model);
+	        }
+		
 		String fName = request.getParameter("fName");
 		String lName = request.getParameter("lName");
 		String email = request.getParameter("email");
 		String phone = request.getParameter("phone");
-		String createDate = request.getParameter("createDate");
 		String role = request.getParameter("role");
 		String address = request.getParameter("address");
 		String username = request.getParameter("username");
@@ -120,10 +154,12 @@ public class HomeController {
 		userInfo.setPassword(passwordEncoder.encode(password));
 		userInfo.setCreatedDate(new Date());
 		userInfo.setRole(role);
-		userInfo.setEnabled(true);
-
-
+		userInfo.setEnabled(Boolean.parseBoolean(enabled));
+		userInfo.setFilename(fileNames.toString());
 		userInfo = userInfoService.save(userInfo);
+		
+		System.out.println("Root user save");
+		
 		if (userInfo != null) {
 			model.put("success", true);
 			model.put("msg", "Registration Successful");
@@ -136,53 +172,5 @@ public class HomeController {
 
 	}
 	
-	@PostMapping(value = "/aduser-save")
-	public ModelAndView adRegistration(HttpServletRequest request) {
-		Map<String, Object> model = new HashMap<>();
-		String fName = request.getParameter("fName");
-		String lName = request.getParameter("lName");
-		String email = request.getParameter("email");
-		String phone = request.getParameter("phone");
-		String createDate = request.getParameter("createDate");
-		String role = request.getParameter("role");
-		String address = request.getParameter("address");
-		String username = request.getParameter("username");
-		String password = request.getParameter("password");
-		String enabled = request.getParameter("enabled");
-		UserInfo userInfo = new UserInfo();
-
-		userInfo.setFirstName(fName);
-		userInfo.setLastName(lName);
-		userInfo.setEmail(email);
-		userInfo.setPhone(phone);
-		userInfo.setAddress(address);
-		userInfo.setUsername(username);
-		userInfo.setPassword(passwordEncoder.encode(password));
-		userInfo.setCreatedDate(new Date());
-		userInfo.setRole(role);
-		userInfo.setEnabled(true);
-
-
-		userInfo = userInfoService.save(userInfo);
-		if (userInfo != null) {
-			model.put("success", true);
-			model.put("msg", "Registration Successful");
-			return new ModelAndView("pages/adcreate-user", model);
-		} else {
-			model.put("error", false);
-			model.put("message", "Save failed");
-			return new ModelAndView("pages/adcreate-user", model);
-		}
-
-	}
-	
-	@GetMapping("/userinfo")
-	public ModelAndView showAll() {
-		Map<String, Object> model = new HashMap<>();
-		List<UserInfo> userInfolist = userInfoService.getAll();
-		model.put("userList", userInfolist);
-		return new ModelAndView("pages/aduser-info", model);
-	}
-
 	
 }

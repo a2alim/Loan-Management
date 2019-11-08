@@ -10,7 +10,18 @@
 			<h3 class="title-w3ls mb-5" style="color: green;">Please Registation</h3>
 		</div>
 		<div class="contact-w3ls-form mt-5">
-			<form action="<c:url value="/save"/>"  class="w3-pvt-contact-fm" method="post">
+			<form action="<c:url value="/api/user/save-user-registration"/>" class="w3-pvt-contact-fm"
+				enctype="multipart/form-data" method="post">
+				
+				<div class="row" style="margin-top: 50px;">
+					<div class="col-md-6">
+						<div class="form-group">
+							<label>Add Your Picture</label> <input type="file" name="filename"
+								accept="image/x-png,image/gif,image/jpeg" />
+						</div>
+					</div>
+					
+				</div>
 				<div class="row">
 					<div class="col-lg-6">
 						<div class="form-group">

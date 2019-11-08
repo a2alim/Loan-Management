@@ -3,13 +3,14 @@
 	<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="../layout/adminheader.jsp" />
 
-<div class="row" style="margin-left: 40px">
+<div class="row" style="margin-left: 10px;">
 	<h3 align="center" style="color: green;">${msg}</h3>
 	
 	<h1 align="center" style="color: green; margin-top: 40px; margin-bottom: 30px;">Show User Information</h1>
-	<table class="table table-striped" style="margin-bottom: 30px;">
-		<thead style="background-color: gray; color: white;">
+	<table class="table table-striped" style="margin-bottom: 30px; font-size: 20px;">
+		<thead style="background-color: gray; color: white; font-size: 25px;">
 			<tr>
+				<td>Pricture</td>
 				<td>User Id</td>
 				<td>Name</td>
 				<td>Email</td>
@@ -23,6 +24,8 @@
 		<tbody>
 			<c:forEach var="user" items="${userList}">
 				<tr>
+					<td><img src="<c:url value="../uassets/usersImages/${user.filename}"/>"  
+				 alt="..."></td>
 					<td>${user.userId}</td>
 					<td>${user.firstName} ${user.lastName}</td>
 					<td>${user.email}</td>

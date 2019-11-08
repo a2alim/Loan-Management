@@ -5,7 +5,7 @@
 <jsp:include page="../layout/header.jsp" />
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 
-<section class="content-info py-5" ng-app="app" ng-controller="appController">
+<section class="content-info py-5">
 	<div class="container py-md-5" style="margin-top: 125px;">
 		<div class="form-group text-center">
 			<ul class="list-inline">
@@ -18,7 +18,7 @@
 			</ul>
 		</div>
 		<div class="text-center px-lg-5">
-			<h3 style="color: green;">${msg}</h3>
+			<h3 style="color: blue;">${msg}</h3>
 			<h3 class="title-w3ls mb-5" style="color: green;">Installment
 				Payment</h3>
 		</div>
@@ -41,7 +41,7 @@
 
 				</div>
 			</form>
-			<form  class="w3-pvt-contact-fm" ng-submit="onSubmit()">
+			<form  class="w3-pvt-contact-fm" action="/save-installment" method="post">
 				<div class="row">
 					<div class="col-lg-6">
 						<div class="form-group">
@@ -114,7 +114,7 @@
 						</div>
 						<div class="form-group">
 							<label>Transection Id </label> <input class="form-control"
-								type="text" name="transectionId" required="">
+								type="text" name="transectionId" readonly="" required="" value="${showtransectionId}">
 						</div>
 						<div class="form-group mx-auto mt-3">
 							<button type="submit" class="btn btn-success btn-block"
@@ -128,7 +128,7 @@
 		</div>
 
 
-		<div class="row justify-content-center" style="margin-top: 20px;">
+		<%-- <div class="row justify-content-center" style="margin-top: 20px;">
 			<div class="col-md-4">
 				<form action="<c:url value="/card-payement"/>"   method="get" class="form-group">
 					<h3 style="color: blue;">For Payment Through Card</h3>
@@ -145,7 +145,7 @@
 					<input type="submit" class="btn btn-info text-center" value="Pay Now" />
 				</form>
 			</div>
-		</div>
+		</div> --%>
 
 
 	</div>
@@ -153,7 +153,7 @@
 
 
 <jsp:include page="../layout/footer.jsp" />
-<script>
+<!-- <script>
 	angular.module('app', [])
 	.controller('appController', function($scope, $http){
 		 $scope.onSubmit = function(){
@@ -167,5 +167,5 @@
 		}
 	});
 	
-</script>
+</script> -->
 

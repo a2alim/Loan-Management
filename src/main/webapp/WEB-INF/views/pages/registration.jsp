@@ -16,13 +16,33 @@
 <section class="content-info py-5">
 	<div class="container py-md-5">
 		<div class="text-center px-lg-5">
-		<h3 class="title-w3ls" style="color: #0000FF;">Welcome to Loan Management</h3>
+			<h3 class="title-w3ls" style="color: #0000FF;">Welcome to Loan
+				Management</h3>
 			<h3 style="color: green;">${msg}</h3>
-			<h3 class="title-w3ls mb-2" style="color: green;">Please Registation</h3>
-			
+			<h3 class="title-w3ls mb-2" style="color: green;">Please
+				Registation</h3>
+
 		</div>
+
+
 		<div class="contact-w3ls-form mt-4">
-			<form  action="<c:url value="/save"/>" class="w3-pvt-contact-fm" method="post">
+		
+			<form action="<c:url value="/save"/>" class="w3-pvt-contact-fm"
+				enctype="multipart/form-data" method="post">
+				
+				<div class="row" style="margin-top: 50px;">
+					<div class="col-md-2"></div>
+					<div class="col-md-4">
+						<div class="form-group">
+							<label>Add Your Picture</label> <input type="file" name="filename"
+								accept="image/x-png,image/gif,image/jpeg" />
+						</div>
+					</div>
+					<div class="col-md-4">
+						<img src="#" />
+					</div>
+
+				</div>
 				<div class="row">
 					<div class="col-md-2"></div>
 					<div class="col-lg-4">
@@ -43,7 +63,7 @@
 							<label>Phone</label> <input class="form-control" type="number"
 								name="phone" placeholder="Enter Phone" required="">
 						</div>
-						
+
 						<div class="form-group">
 							<label>Role</label> <select class="form-control" name="role">
 								<option value="User">User</option>
@@ -53,8 +73,8 @@
 					<div class="col-lg-4">
 						<div class="form-group">
 							<label>Address</label>
-							<textarea style="height: 123px;" class="form-control" name="address" placeholder="Enter Full Address "
-								required=""></textarea>
+							<textarea style="height: 123px;" class="form-control"
+								name="address" placeholder="Enter Full Address " required=""></textarea>
 						</div>
 
 						<div class="form-group">
@@ -73,7 +93,7 @@
 							</select>
 						</div>
 					</div>
-					
+
 				</div>
 				<div class="row">
 					<div class="form-group mx-auto mt-3">
@@ -82,7 +102,10 @@
 				</div>
 				<div class="row">
 					<div class="form-group mx-auto mt-3">
-						<p>Already have an account <a href="<c:url value="/logout"/>" >Lgin here</a></p>
+						<p>
+							Already have an account <a href="<c:url value="/logout"/>">Lgin
+								here</a>
+						</p>
 					</div>
 				</div>
 			</form>

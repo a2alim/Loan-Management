@@ -76,12 +76,13 @@ ul {
 }
 
 .banner-top {
-    background: url(../images/banner1.jpg) no-repeat center;
+    background: url(../images/parsonalLoan.jpg) no-repeat center;
     background-size: cover;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     -moz-background-size: cover;
+    width:100%;
 }
 
 .banner-top1 {
