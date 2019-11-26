@@ -14,7 +14,7 @@
     	 <div class="col-md-4 compose">   	 	
     	 	<div class="mail-profile">
     	 		<div class="mail-pic">
-    	 			<a href="#"><img src="images/b3.png" alt=""></a>
+    	 			<a href="#"><img src="<c:url value="images/b3.png"/>" alt=""></a>
     	 		</div>
     	 		<div class="mailer-name"> 			
     	 				<h5><a href="#">Abdul Alim</a></h5>  	 				

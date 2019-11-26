@@ -107,7 +107,7 @@ public class UserInfoControllerImpl implements UserInfoController{
 		Map<String, Object> model = new HashMap<>();
 		
 		
-		 String uploadDir ="C:\\Users\\adora\\OneDrive\\Desktop\\LoanManagement\\src\\main\\resources\\static\\uassets\\usersImages";
+		 String uploadDir ="src/main/resources/static/uassets/usersImages";
 	        
 		 
 		 
@@ -171,7 +171,7 @@ public class UserInfoControllerImpl implements UserInfoController{
 		Map<String, Object> model = new HashMap<>();
 		
 		
-		 String uploadDir ="C:\\Users\\adora\\OneDrive\\Desktop\\LoanManagement\\src\\main\\resources\\static\\uassets\\usersImages";
+		 String uploadDir ="src/main/resources/static/uassets/usersImages";
 	        
 		 
 		 
@@ -188,7 +188,7 @@ public class UserInfoControllerImpl implements UserInfoController{
 	        } catch (IOException e) {
 	        	model.put("error", false);
 	            model.put("msg", "Save failed");
-	            return new ModelAndView("pages/registration", model);
+	            return new ModelAndView("pages/adcreate-user", model);
 	        }
 		
 		String fName = request.getParameter("fName");

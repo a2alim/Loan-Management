@@ -41,7 +41,7 @@
 
 				</div>
 			</form>
-			<form  class="w3-pvt-contact-fm" action="/save-installment" method="post">
+			<form  class="w3-pvt-contact-fm" action="<c:url value="/save-installment"/>"  method="post">
 				<div class="row">
 					<div class="col-lg-6">
 						<div class="form-group">

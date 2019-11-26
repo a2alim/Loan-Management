@@ -77,7 +77,7 @@
 												<li><a  href="<c:url value="/applyforloan"/>" class="drop-text">Apply For Loan</a></li>
 												<li><a  href="<c:url value="/user-loan-status/${pageContext.request.remoteUser}"/>" class="drop-text">Loan Status</a></li>
 												<li><a  href="<c:url value="/user-installment"/>" class="drop-text">Installment Payemetn</a></li>
-												<li><a href="<c:url value="/installment-status"/>"  class="drop-text">Installment Status</a></li>
+												<li><a  href="<c:url value="/installment-status"/>"  class="drop-text">Installment Status</a></li>
 											</ul>
 										</li>
 										<li><a  href="<c:url value="/logout"/>" >Logout</a></li>

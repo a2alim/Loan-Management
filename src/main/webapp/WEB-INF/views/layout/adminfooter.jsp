@@ -96,9 +96,7 @@
 <script src="<c:url value="/assets/js/jquery.nicescroll.js"/>" ></script>
 <script src="<c:url value="/assets/js/scripts.js"/>" ></script>
 <!--//scrolling js-->
-<script src="<c:url value="/assets/js/bootstrap.js"/>" >
-	
-</script>
+<script src="<c:url value="/assets/js/bootstrap.js"/>" ></script>
 <!-- mother grid end here-->
 </body>
 </html>
